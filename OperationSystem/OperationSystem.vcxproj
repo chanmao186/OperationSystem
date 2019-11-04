@@ -188,21 +188,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="OperationSystem.h" />
     <ClInclude Include="OperationSystemDlg.h" />
+    <ClInclude Include="PCB.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Process.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Global.cpp" />
     <ClCompile Include="OperationSystem.cpp" />
     <ClCompile Include="OperationSystemDlg.cpp" />
+    <ClCompile Include="PCB.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Process.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OperationSystem.rc" />
