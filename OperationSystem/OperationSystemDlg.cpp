@@ -11,6 +11,10 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
+#include <fstream>
+#include <string>
+#include <iostream>
+using namespace std;
 
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
@@ -52,6 +56,7 @@ END_MESSAGE_MAP()
 
 COperationSystemDlg::COperationSystemDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_OPERATIONSYSTEM_DIALOG, pParent)
+	, Edit_CurPCB(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -59,12 +64,15 @@ COperationSystemDlg::COperationSystemDlg(CWnd* pParent /*=nullptr*/)
 void COperationSystemDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT_CurPCB, Edit_CurPCB);
+	DDX_Control(pDX, IDC_EDIT_CurPCB, CEdit_CurPCB);
 }
 
 BEGIN_MESSAGE_MAP(COperationSystemDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_LoadP0, &COperationSystemDlg::OnBnClickedLoadp0)
 END_MESSAGE_MAP()
 
 
@@ -153,3 +161,26 @@ HCURSOR COperationSystemDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void COperationSystemDlg::OnBnClickedLoadp0()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	ifstream ifs;
+	string s = "res\\process_code\\001.c";
+	ifs.open(s);   			//将文件流对象与文件关联起来，如果已经关联则调用失败
+	assert(ifs.is_open());   	//若失败,则输出错误消息,并终止程序运行
+
+    
+	while (getline(ifs, s))		//行分隔符可以显示指定，比如按照分号分隔getline(infile,s,';')
+	{
+		cout << s << endl;
+	}
+	ifs.close();             	//关闭文件输入流 
+
+	MessageBox(("当前进程块已满，不可新加进程")
+		, "提示", MB_OK|MB_ICONERROR);
+								//Edit_CurPCB += a;
+	UpdateData(false);
+	//CEdit_CurPCB.SetWindowTextW(Edit_CurPCB);
+}

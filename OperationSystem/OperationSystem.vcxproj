@@ -45,7 +45,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -187,18 +187,24 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CPU.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="Global.h" />
+    <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="OperationSystem.h" />
     <ClInclude Include="OperationSystemDlg.h" />
     <ClInclude Include="PCB.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Process.h" />
+    <ClInclude Include="queue.h" />
+    <ClInclude Include="Register.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="CPU.cpp" />
+    <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Global.h" />
+    <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="OperationSystem.cpp" />
     <ClCompile Include="OperationSystemDlg.cpp" />
     <ClCompile Include="PCB.cpp" />
@@ -209,6 +215,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Process.cpp" />
+    <ClCompile Include="queue.cpp" />
+    <ClCompile Include="Register.cpp" />
+    <ClCompile Include="res\process_code\001.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OperationSystem.rc" />

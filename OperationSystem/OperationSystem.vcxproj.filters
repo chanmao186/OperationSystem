@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\process_code">
+      <UniqueIdentifier>{1830d439-edd1-4ffd-b6d7-84b99fe84311}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OperationSystem.h">
@@ -36,10 +39,19 @@
     <ClInclude Include="Process.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Global.h">
+    <ClInclude Include="PCB.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="PCB.h">
+    <ClInclude Include="Register.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CPU.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="queue.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,13 +65,31 @@
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Process.cpp">
+    <ClCompile Include="Register.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Global.cpp">
+    <ClCompile Include="CPU.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Define.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="res\process_code\001.c">
+      <Filter>源文件\process_code</Filter>
+    </ClCompile>
+    <ClCompile Include="queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.h">
+      <Filter>头文件</Filter>
     </ClCompile>
     <ClCompile Include="PCB.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Process.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
