@@ -843,7 +843,7 @@
 											"font": "Arial;13;0",
 											"left": 80,
 											"top": -92,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -1039,7 +1039,7 @@
 											"font": "Arial;13;0",
 											"left": 16,
 											"top": 68,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -1231,7 +1231,7 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -1379,7 +1379,7 @@
 							"font": "Arial;13;0",
 							"left": 685,
 							"top": 468,
-							"width": 163.71728515625,
+							"width": 165,
 							"height": 50,
 							"text": "*系统时间片--\n*所有阻塞进程的时间片--"
 						},
@@ -1454,7 +1454,7 @@
 											"font": "Arial;13;0",
 											"left": 208,
 											"top": -320,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -2079,13 +2079,30 @@
 											"height": 13,
 											"text": "+int PcdStats",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFuUQdYt+Z0atc=",
+											"_parent": {
+												"$ref": "AAAAAAFuMgkOh3yy8pE="
+											},
+											"model": {
+												"$ref": "AAAAAAFuUQdYauZx4AY="
+											},
+											"font": "Arial;13;0",
+											"left": 501,
+											"top": 254,
+											"width": 123.69677734375,
+											"height": 13,
+											"text": "+int Length",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 496,
 									"top": 129,
 									"width": 133.69677734375,
-									"height": 128
+									"height": 143
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -2108,7 +2125,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 262,
+											"top": 277,
 											"width": 123.69677734375,
 											"height": 13,
 											"text": "+Init()",
@@ -2125,7 +2142,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 277,
+											"top": 292,
 											"width": 123.69677734375,
 											"height": 13,
 											"text": "+Save()",
@@ -2142,7 +2159,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 292,
+											"top": 307,
 											"width": 123.69677734375,
 											"height": 13,
 											"text": "+Blocked()",
@@ -2159,7 +2176,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 307,
+											"top": 322,
 											"width": 123.69677734375,
 											"height": 13,
 											"text": "+Awake()",
@@ -2176,7 +2193,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 322,
+											"top": 337,
 											"width": 123.69677734375,
 											"height": 13,
 											"text": "+AddToSqueen()",
@@ -2193,7 +2210,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 501,
-											"top": 337,
+											"top": 352,
 											"width": 123.69677734375,
 											"height": 13,
 											"text": "+End()",
@@ -2202,7 +2219,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 496,
-									"top": 257,
+									"top": 272,
 									"width": 133.69677734375,
 									"height": 98
 								},
@@ -2244,7 +2261,7 @@
 							"left": 496,
 							"top": 104,
 							"width": 133.69677734375,
-							"height": 251,
+							"height": 266,
 							"nameCompartment": {
 								"$ref": "AAAAAAFuMgkOhnytwkM="
 							},
@@ -2288,7 +2305,7 @@
 								"$ref": "AAAAAAFuMgkOhnysTds="
 							},
 							"lineStyle": 1,
-							"points": "630:202;703:172"
+							"points": "630:206;703:174"
 						},
 						{
 							"_type": "UMLClassView",
@@ -2997,13 +3014,30 @@
 											"height": 13,
 											"text": "+molloc(int size)",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFuUMylsuZtDiU=",
+											"_parent": {
+												"$ref": "AAAAAAFuMjBHZX3WKQo="
+											},
+											"model": {
+												"$ref": "AAAAAAFuUMylfuZqt5Q="
+											},
+											"font": "Arial;13;0",
+											"left": 309,
+											"top": 548,
+											"width": 95.03076171875,
+											"height": 13,
+											"text": "+free()",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 304,
 									"top": 528,
 									"width": 105.03076171875,
-									"height": 23
+									"height": 38
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -3129,7 +3163,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMgkOhnyqNuY="
 							},
-							"name": "PState PSW"
+							"name": "PState PSW",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3137,7 +3172,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMgkOhnyqNuY="
 							},
-							"name": "int PAddress[100][2]"
+							"name": "int PAddress[100][2]",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3145,7 +3181,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMgkOhnyqNuY="
 							},
-							"name": "int PC"
+							"name": "int PC",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3153,7 +3190,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMgkOhnyqNuY="
 							},
-							"name": "int PId"
+							"name": "int PId",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3161,7 +3199,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMgkOhnyqNuY="
 							},
-							"name": "int DR"
+							"name": "int DR",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3169,7 +3208,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMgkOhnyqNuY="
 							},
-							"name": "PCD Next"
+							"name": "PCD Next",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3177,7 +3217,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMgkOhnyqNuY="
 							},
-							"name": "int length"
+							"name": "int length",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3185,7 +3226,16 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMgkOhnyqNuY="
 							},
-							"name": "int PcdStats"
+							"name": "int PcdStats",
+							"type": ""
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFuUQdYauZx4AY=",
+							"_parent": {
+								"$ref": "AAAAAAFuMgkOhnyqNuY="
+							},
+							"name": "int Length"
 						}
 					],
 					"operations": [
@@ -3253,7 +3303,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMg97dn0NGwY="
 							},
-							"name": "PState PSW"
+							"name": "PState PSW",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3261,7 +3312,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMg97dn0NGwY="
 							},
-							"name": "char IR"
+							"name": "char IR",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3269,7 +3321,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMg97dn0NGwY="
 							},
-							"name": "int DR"
+							"name": "int DR",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3277,7 +3330,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMg97dn0NGwY="
 							},
-							"name": "int PC[2]"
+							"name": "int PC[2]",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3285,7 +3339,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMg97dn0NGwY="
 							},
-							"name": "PCD pcd_now"
+							"name": "PCD pcd_now",
+							"type": ""
 						}
 					]
 				},
@@ -3303,7 +3358,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMiT3r31gpTY="
 							},
-							"name": "int Time"
+							"name": "int Time",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -3371,7 +3427,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuMjBHZH3NynU="
 							},
-							"name": "Address [16][8]"
+							"name": "Address [16][8]",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -3393,6 +3450,14 @@
 									"type": ""
 								}
 							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFuUMylfuZqt5Q=",
+							"_parent": {
+								"$ref": "AAAAAAFuMjBHZH3NynU="
+							},
+							"name": "free"
 						}
 					]
 				}

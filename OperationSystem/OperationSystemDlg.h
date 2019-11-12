@@ -31,4 +31,9 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedLoadp0();
+	// 当前正在运行的进程控制块
+	CString Edit_CurPCB;
+	CEdit CEdit_CurPCB;
 };
