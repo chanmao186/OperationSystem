@@ -202,7 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPU.cpp" />
-    <ClCompile Include="Define.cpp" />
+    <ClCompile Include="Define.h" />
     <ClCompile Include="Global.h" />
     <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="OperationSystem.cpp" />

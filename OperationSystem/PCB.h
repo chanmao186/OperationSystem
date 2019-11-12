@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "Define.cpp"
+#include "Define.h"
 #include <string>
 using namespace std;
 class PCB
@@ -23,8 +23,10 @@ public:
 	// 该进程块是否正在被使用，true是在被使用，false代表空闲
 	bool flag;
 	// 要加载的文件名字
-	string flieName;
-	// 加载指令到内存中
-	int LoadCommand();
+	string Name;
+	void Config(Page _page,string name);
+	// 改变进程块的状态，并加入到相关队列
+	void TranformStates(PStates state);
+	PCB();
 };
 

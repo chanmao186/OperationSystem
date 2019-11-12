@@ -74,9 +74,6 @@
     <ClCompile Include="MemoryManager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Define.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="res\process_code\001.c">
       <Filter>源文件\process_code</Filter>
     </ClCompile>
@@ -91,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="Process.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Define.h">
+      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

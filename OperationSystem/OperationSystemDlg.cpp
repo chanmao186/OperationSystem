@@ -57,6 +57,18 @@ END_MESSAGE_MAP()
 COperationSystemDlg::COperationSystemDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_OPERATIONSYSTEM_DIALOG, pParent)
 	, Edit_CurPCB(_T(""))
+	, check10(FALSE)
+	, check2(FALSE)
+	, CurResult(_T(""))
+	, CurCommand(_T(""))
+	, check3(FALSE)
+	, check1(FALSE)
+	, check4(FALSE)
+	, check5(FALSE)
+	, check6(FALSE)
+	, check7(FALSE)
+	, check8(FALSE)
+	, check9(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -65,7 +77,19 @@ void COperationSystemDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EDIT_CurPCB, Edit_CurPCB);
-	DDX_Control(pDX, IDC_EDIT_CurPCB, CEdit_CurPCB);
+	DDX_Check(pDX, IDC_CHECK2, check2);
+	DDX_Text(pDX, IDC_EDIT_CurResult, CurResult);
+	DDX_Control(pDX, IDC_EDIT_CurTimeSlice, CurTimeSlice);
+	DDX_Text(pDX, IDC_EDIT_CurCommand, CurCommand);
+	DDX_Check(pDX, IDC_CHECK3, check3);
+	DDX_Check(pDX, IDC_CHECK1, check1);
+	DDX_Check(pDX, IDC_CHECK10, check10);
+	DDX_Check(pDX, IDC_CHECK4, check4);
+	DDX_Check(pDX, IDC_CHECK5, check5);
+	DDX_Check(pDX, IDC_CHECK6, check6);
+	DDX_Check(pDX, IDC_CHECK7, check7);
+	DDX_Check(pDX, IDC_CHECK8, check8);
+	DDX_Check(pDX, IDC_CHECK9, check9);
 }
 
 BEGIN_MESSAGE_MAP(COperationSystemDlg, CDialogEx)
@@ -165,22 +189,17 @@ HCURSOR COperationSystemDlg::OnQueryDragIcon()
 
 void COperationSystemDlg::OnBnClickedLoadp0()
 {
-	// TODO: 在此添加控件通知处理程序代码
-	ifstream ifs;
-	string s = "res\\process_code\\001.c";
-	ifs.open(s);   			//将文件流对象与文件关联起来，如果已经关联则调用失败
-	assert(ifs.is_open());   	//若失败,则输出错误消息,并终止程序运行
-
-    
-	while (getline(ifs, s))		//行分隔符可以显示指定，比如按照分号分隔getline(infile,s,';')
-	{
-		cout << s << endl;
+	//先获取列表框中的数据
+	UpdateData(true);
+	string file = "000.c";
+	//根据文件明创建进程
+	for (int i = 0; i < 10; i++) {
+		if (*check[i]) {
+			file[2] = i+'0';
+			process.Create(file);
+			*check[i] = FALSE;
+		}
 	}
-	ifs.close();             	//关闭文件输入流 
-
-	MessageBox(("当前进程块已满，不可新加进程")
-		, "提示", MB_OK|MB_ICONERROR);
-								//Edit_CurPCB += a;
+	//显示修改
 	UpdateData(false);
-	//CEdit_CurPCB.SetWindowTextW(Edit_CurPCB);
 }

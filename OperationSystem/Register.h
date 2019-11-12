@@ -1,5 +1,5 @@
 #pragma once
-#include "Define.cpp"
+#include "Define.h"
 
 class Register
 {
@@ -7,7 +7,7 @@ public:
 	// 程序状态寄存器
 	PStates PSW;
 	//	指令寄存器	
-	COMMAND IR;
+	string IR;
 	// //地址寄存器
 	int PC;
 	// 正在执行的指令控制块

@@ -1,7 +1,7 @@
 #pragma once
-#include "Define.cpp"
-#include "Global.h"
 #include "pch.h"
+#include "Define.h"
+
 class Process
 {
 public:

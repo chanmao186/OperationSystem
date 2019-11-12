@@ -13,6 +13,17 @@
 #define IDC_EDIT_CurTimeSlice           1003
 #define IDC_EDIT_CurResult              1004
 #define IDC_STATIC_Memory               1005
+#define IDC_CHECK1                      1010
+#define IDC_CHECK2                      1011
+#define IDC_CHECK3                      1012
+#define IDC_CHECK4                      1013
+#define IDC_CHECK5                      1014
+#define IDC_CHECK6                      1015
+#define IDC_CHECK7                      1016
+#define IDC_CHECK8                      1017
+#define IDC_CHECK9                      1018
+#define IDC_CHECK10                     1019
+#define IDC_CHECK11                     1020
 
 // Next default values for new objects
 // 
@@ -20,7 +31,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1006
+#define _APS_NEXT_CONTROL_VALUE         1023
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

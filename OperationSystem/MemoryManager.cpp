@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "MemoryManager.h"
-#include "Define.cpp"
+#include "Define.h"
 
 //将内存初始化
 int MemoryManager::Initialize()

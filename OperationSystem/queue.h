@@ -1,5 +1,5 @@
 #pragma once
-#include "Define.cpp"
+#include "Define.h"
 class queue
 {
 public:
