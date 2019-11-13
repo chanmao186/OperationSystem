@@ -25,7 +25,9 @@ struct PageNode {
 	int Start;
 	//内存块的长度
 	int Length;
-	//下一个地址的位置
+	//前一个内存块
+	Page Front;
+	//后一个内存块
 	Page Next;
 };
 /*

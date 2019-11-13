@@ -16,12 +16,11 @@ void Process::Create(string FileName) {
 	int length = atoi(temp.c_str()), addr;
 	
 	//获取开辟内存，并并使用该内存块配置PCB
-	pcb->Config(TheMemory.malloc(length), FileName);
+	pcb->Config(TheMemory.Malloc(length), FileName);
 	addr = pcb->page->Start;
 	//给地址赋值
 	for (int i = 0; i < length; i++) {
 		getline(ifs, TheMemory.Memory[addr].command);
-		TheMemory.Memory[addr].flag = true;
 	}
 	
 	ifs.close();

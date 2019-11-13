@@ -11,6 +11,7 @@ public:
 	// 页表的头部
 	Page Head;
 	// 开辟地址
-	Page malloc(int size);
+	Page Malloc(int size);
+	void Free(Page _page);
 };
 

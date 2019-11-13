@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "PCB.h"
 #include "Global.h"
+
 int PCB::Initialize()
 {
 	PC = 0;
@@ -20,7 +21,7 @@ void PCB::Config(Page _page,string name)
 	// TODO: 在此处添加实现代码.
 	page = _page;
 	PC = _page->Start;
-	this->ID = ID++;
+	ID = TheID++
 	flag = true;
 	//默认程序的状态为就绪
 	TranformStates(Ready);

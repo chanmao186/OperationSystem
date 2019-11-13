@@ -190,6 +190,7 @@ HCURSOR COperationSystemDlg::OnQueryDragIcon()
 void COperationSystemDlg::OnBnClickedLoadp0()
 {
 	//先获取列表框中的数据
+	string a = "1";
 	UpdateData(true);
 	string file = "000.c";
 	//根据文件明创建进程
