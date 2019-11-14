@@ -207,7 +207,7 @@ void COperationSystemDlg::OnBnClickedLoadp0()
 	for (int i = 0; i < 10; i++) {
 		if (*check[i]) {
 			file[2] = i+'0';
-			process.Create(file);
+			//process.Create(file);
 			*check[i] = FALSE;
 		}
 	}
@@ -219,4 +219,10 @@ void COperationSystemDlg::OnBnClickedPowerbutton()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	cpu.Power = !cpu.Power;
+	if (cpu.Power) {
+		PowerBtn.SetWindowTextA("关机");
+	}
+	else {
+		PowerBtn.SetWindowTextA("开机");
+	}
 }

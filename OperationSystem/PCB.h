@@ -29,5 +29,6 @@ public:
 	// 改变进程块的状态，并加入到相关队列
 	void TranformStates(PStates state);
 	PCB();
+	PCB(string name);
 };
 

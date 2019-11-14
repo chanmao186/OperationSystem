@@ -6,18 +6,22 @@
 //将内存初始化
 int MemoryManager::Initialize()
 {
+	Memory[0].command = "x=0;";
+	Memory[1].command = "god;";
+	Memory[0].flag = true;
+	Memory[1].flag = true;
 	// TODO: 在此处添加实现代码.
-	for (int i = 0; i < 128; i++) {
+	for (int i = 2; i < 128; i++) {
 		Memory[i].flag= false;
 	}
+	Head = (Page)malloc(sizeof(PageNode));
+	ConfigPage(Idle, 2,0, NULL, Head);
+	ConfigPage(Head, 126,2, Idle, NULL);
 	return 0;
 }
 
 MemoryManager::MemoryManager() {
 	Initialize();
-	Head = (Page)malloc(sizeof(PageNode));
-	Head->Front = NULL;
-	Head->Next = NULL;
 }
 // 开辟地址
 Page MemoryManager::Malloc(int size)
@@ -39,11 +43,8 @@ Page MemoryManager::Malloc(int size)
 
 	//若该地址块的过长，则进行分割
 	if (temp->Length - size <= MinSize) {
-		Page p = (Page)Malloc(sizeof(PageNode));
-		p->Start = temp->Start + size;
-		p->Length = temp->Length - size;
-		p->Next = temp->Next;
-		p->Front = temp;
+		Page p = ConfigPage(NULL, temp->Length - size,
+			temp->Start + size, temp, temp->Next);
 		temp->Next = p;
 		temp->Length = size;
 	}
@@ -73,4 +74,19 @@ void MemoryManager::Free(Page _page)
 		_page->Length += temp->Length;
 		free(temp);
 	}
+}
+
+
+// 配置页块
+Page MemoryManager::ConfigPage(Page p,int length,int start, Page front, Page next)
+{
+	// TODO: 在此处添加实现代码.
+	if (p == NULL) {
+		p = (Page)malloc(sizeof(PageNode));
+	}
+	p->Length = length;
+	p->Next = next;
+	p->Front = front;
+	p->Start = start;
+	return p;
 }

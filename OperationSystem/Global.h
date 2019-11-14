@@ -15,6 +15,7 @@
 //进程的总数，一共9个一个空闲进程
 #define PNum 9
 static PCB pcbArray[PNum];
+static PCB IdlePCB("Idle");
 static queue PCB_Ready;
 static queue PCB_Blocked;
 static MemoryManager TheMemory;

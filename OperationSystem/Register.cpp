@@ -22,3 +22,9 @@ void Register::GetPcbState(PPCB curPCB)
 	PC = curPCB->PC;
 	PSW = curPCB->PState = Running;
 }
+
+
+void Register::LoadPCB(PPCB _pcb)
+{
+	// TODO: 在此处添加实现代码.
+}

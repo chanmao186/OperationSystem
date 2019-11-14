@@ -19,6 +19,7 @@ int PCB::Initialize()
 void PCB::Config(Page _page,string name)
 {
 	// TODO: 在此处添加实现代码.
+	this->Name = name;
 	page = _page;
 	PC = _page->Start;
 	ID = TheID++
@@ -43,4 +44,9 @@ void PCB::TranformStates(PStates state)
 }
 PCB::PCB() {
 	Initialize();
+}
+PCB::PCB(string name) {
+	Initialize();
+	flag = true;
+	this->Name = name;
 }

@@ -19,9 +19,19 @@ void CPU::DealIR()
 		theRegister.DR--;
 	}
 	else if (theRegister.IR[0] == '!') {
-
+		theRegister.PSW = Blocked;
 	}
 	else if (theRegister.IR[0] == 'E') {
 
 	}
+}
+
+
+// //进行程序调度
+void CPU::Dispatch()
+{
+	// TODO: 在此处添加实现代码.
+	//保持当前的程序的状态
+	theRegister.SvaePCBState();
+	//theRegister.
 }
