@@ -7,6 +7,8 @@
 #include <iostream>
 #include "MemoryManager.h"
 #include "Register.h"
+#include "CPU.h"
+
 #ifndef _GLOBAL_H_
 #define _GLOBAL_H_
 #define TheID 10;
@@ -19,4 +21,5 @@ static MemoryManager TheMemory;
 static string path = "res\\process_code\\";
 static Process process;
 static Register theRegister;
+static CPU cpu;
 #endif // !_Global_

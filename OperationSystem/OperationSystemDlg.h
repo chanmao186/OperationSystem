@@ -55,4 +55,9 @@ public:
 		&check7,&check8,&check9,
 		&check10
 	};
+	CString Edit_Ready;
+	CString Edit_Blocked;
+	CString Edit_Result;
+	afx_msg void OnBnClickedPowerbutton();
+	CButton PowerBtn;
 };

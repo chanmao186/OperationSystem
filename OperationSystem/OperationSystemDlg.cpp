@@ -69,6 +69,9 @@ COperationSystemDlg::COperationSystemDlg(CWnd* pParent /*=nullptr*/)
 	, check7(FALSE)
 	, check8(FALSE)
 	, check9(FALSE)
+	, Edit_Ready(_T(""))
+	, Edit_Blocked(_T(""))
+	, Edit_Result(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -90,6 +93,10 @@ void COperationSystemDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Check(pDX, IDC_CHECK7, check7);
 	DDX_Check(pDX, IDC_CHECK8, check8);
 	DDX_Check(pDX, IDC_CHECK9, check9);
+	DDX_Text(pDX, IDC_EDIT_Ready, Edit_Ready);
+	DDX_Text(pDX, IDC_EDIT_Blocked, Edit_Blocked);
+	DDX_Text(pDX, IDC_EDIT_Result, Edit_Result);
+	DDX_Control(pDX, PowerButton, PowerBtn);
 }
 
 BEGIN_MESSAGE_MAP(COperationSystemDlg, CDialogEx)
@@ -97,6 +104,7 @@ BEGIN_MESSAGE_MAP(COperationSystemDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_LoadP0, &COperationSystemDlg::OnBnClickedLoadp0)
+	ON_BN_CLICKED(PowerButton, &COperationSystemDlg::OnBnClickedPowerbutton)
 END_MESSAGE_MAP()
 
 
@@ -189,8 +197,10 @@ HCURSOR COperationSystemDlg::OnQueryDragIcon()
 
 void COperationSystemDlg::OnBnClickedLoadp0()
 {
+
+	if (!cpu.Power)return;
 	//先获取列表框中的数据
-	string a = "1";
+	
 	UpdateData(true);
 	string file = "000.c";
 	//根据文件明创建进程
@@ -203,4 +213,10 @@ void COperationSystemDlg::OnBnClickedLoadp0()
 	}
 	//显示修改
 	UpdateData(false);
+}
+
+void COperationSystemDlg::OnBnClickedPowerbutton()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	cpu.Power = !cpu.Power;
 }

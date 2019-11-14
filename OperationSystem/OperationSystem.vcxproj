@@ -217,9 +217,6 @@
     <ClCompile Include="Process.cpp" />
     <ClCompile Include="queue.cpp" />
     <ClCompile Include="Register.cpp" />
-    <ClCompile Include="res\process_code\001.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OperationSystem.rc" />
@@ -229,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\OperationSystem.ico" />
+    <Image Include="res\PowerBtn.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

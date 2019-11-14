@@ -20,5 +20,8 @@ void CPU::DealIR()
 	}
 	else if (theRegister.IR[0] == '!') {
 
-	}else if(theRegister.IR[0] == 'E')
+	}
+	else if (theRegister.IR[0] == 'E') {
+
+	}
 }

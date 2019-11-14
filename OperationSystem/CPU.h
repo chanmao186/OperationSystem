@@ -6,5 +6,6 @@ public:
 	void Deal();
 	// 处理IR中的指令
 	void DealIR();
+	bool Power = false;
 };
 
