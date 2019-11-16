@@ -24,16 +24,16 @@ void Process::Create(string FileName) {
 	}
 	
 	ifs.close();
-	
 	pcb->ID = ID++;
+	if (pcb->ID) {
+		pcb->TranformStates(Ready);
+	}
 	//将新建的进程加入的就绪队列
-	if(pcb->ID)
-	PCB_Ready.Push(pcb);
 	//int length = atoi();
 }
 PPCB Process::SeekBlankPCB()
 {
-	for (int i = 1; i < 9; i++) {
+	for (int i = 0; i < 9; i++) {
 		if (pcbArray[i].flag)
 			continue;
 		return &pcbArray[i];

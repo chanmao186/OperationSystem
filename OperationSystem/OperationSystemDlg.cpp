@@ -226,12 +226,9 @@ void COperationSystemDlg::OnBnClickedPowerbutton()
 	// TODO: 在此添加控件通知处理程序代码
 	cpu.Power = !cpu.Power;
 	if (cpu.Power) {
-		ShowMemory();
+		RunAndShow();
 		SetTimer(1, 1000,NULL);
 		PowerBtn.SetWindowTextA("关机");
-		string a = "x++;";
-		Edit_CurPCB = a.c_str();
-
 	}
 	else {
 		KillTimer(1);
@@ -242,10 +239,8 @@ void COperationSystemDlg::OnBnClickedPowerbutton()
 
 void COperationSystemDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	Edit_Blocked.Format(_T("%d"), Test++);
-	
 	//每次调用一次cpu执行指令
-	//cpu.Deal();
+	RunAndShow();
 
 	//Edit_CurPCB.Format(_T("%d"), theRegister.PC);
 	//Edit_CurPCB.Format(_T("%4s"), theRegister.pcb->Name);
@@ -320,4 +315,13 @@ void COperationSystemDlg::ShowMemory()
 	}
 
 	
+}
+
+
+void COperationSystemDlg::RunAndShow()
+{
+	// TODO: 在此处添加实现代码.
+	cpu.Deal();
+	Show();
+	ShowMemory();
 }

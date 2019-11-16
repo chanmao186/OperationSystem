@@ -70,4 +70,5 @@ public:
 	void UpdatePCBQueue(PPCB queueHead, CString* Edit);
 	void ShowMemory();
 	CStatic Memory_Picture;
+	void RunAndShow();
 };

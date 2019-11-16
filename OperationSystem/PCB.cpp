@@ -20,14 +20,13 @@ int PCB::Initialize()
 void PCB::Config(Page _page,string name)
 {
 	// TODO: 在此处添加实现代码.
-	this->Name = name;
+	Name = name;
 	page = _page;
 	PC = _page->Start;
-	ID = TheID++
+
 	flag = true;
 	//默认程序的状态为就绪
-	TranformStates(Ready);
-	Name = name;
+	//TranformStates(Ready);
 }
 
 

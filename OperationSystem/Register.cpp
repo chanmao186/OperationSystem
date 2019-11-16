@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Register.h"
+#include "Global.h"
 
 // 保持当前程序的状态
 void Register::SvaePCBState()
@@ -14,7 +15,7 @@ Register::Register() {
 	DR = 0;
 	PC = 0;
 	PSW = Ready;
-	pcb = NULL;
+	pcb = &pcbArray[0];
 	BlockedTime = 0;
 }
 
@@ -34,5 +35,4 @@ void Register::LoadPCB(PPCB _pcb)
 	PSW = Running;
 	pcb = _pcb;
 }
-
 

@@ -32,7 +32,7 @@ PPCB queue::Pop()
 bool queue::Empty()
 {
 	// TODO: 在此处添加实现代码.
-	return Nail == Head;
+	return !Head->Next;
 }
 
 

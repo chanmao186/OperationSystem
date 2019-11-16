@@ -204,8 +204,12 @@
   <ItemGroup>
     <ClCompile Include="CPU.cpp" />
     <ClCompile Include="Define.h" />
-    <ClCompile Include="Global.cpp" />
-    <ClCompile Include="Global.h" />
+    <ClCompile Include="Global.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Global.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="IODevice.cpp" />
     <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="OperationSystem.cpp" />

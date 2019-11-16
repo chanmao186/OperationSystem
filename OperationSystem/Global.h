@@ -14,18 +14,18 @@
 #define TheID 10;
 //进程的总数，一共9个一个空闲进程
 #define PNum 9
-static PCB pcbArray[PNum];
+extern PCB pcbArray[PNum];
 //static PCB IdlePCB("Idle");
-static queue PCB_Ready;
-static queue PCB_Blocked;
-static MemoryManager TheMemory;
+extern queue PCB_Ready;
+extern queue PCB_Blocked;
+extern MemoryManager TheMemory;
 static string path = "res\\process_code\\";
-static Process process;
-static Register theRegister;
+extern Process process;
+extern Register theRegister;
 //IO设备的寄存器
-static Register IORegister;
+extern Register IORegister;
 
-static CString Result="";
-static CPU cpu;
+extern CString Result;
+extern CPU cpu;
 
 #endif // !_Global_
