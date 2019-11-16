@@ -34,3 +34,11 @@ bool queue::Empty()
 	// TODO: 在此处添加实现代码.
 	return Nail == Head;
 }
+
+
+// 获取头节点
+PPCB queue::GetHead()
+{
+	// TODO: 在此处添加实现代码.
+	return Head->Next;
+}

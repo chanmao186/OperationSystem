@@ -42,8 +42,7 @@ PPCB Process::SeekBlankPCB()
 // 阻塞函数
 int Process::Block()
 {
-	//保存状态，加入到阻塞队列
-	theRegister.SvaePCBState();
+	//加入到阻塞队列
 	PCB_Blocked.Push(theRegister.pcb);
 	// TODO: 在此处添加实现代码.
 	return 0;
@@ -54,8 +53,15 @@ int Process::Block()
 int Process::WeakUp()
 {
 	// TODO: 在此处添加实现代码.
-	IORegister.SvaePCBState();
-	PCB_Ready.Push(IORegister.pcb);
+	PPCB p = PCB_Blocked.Pop();
+
+	//将数据显示在对话框内
+	CString temp;
+	temp.Format(_T("%s ->%d\n"), p->Name.c_str(), p->Date);
+	Result += temp;
+
+	p->PState = Ready;
+	PCB_Ready.Push(p);
 	return 0;
 }
 

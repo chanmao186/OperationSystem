@@ -72,6 +72,7 @@ COperationSystemDlg::COperationSystemDlg(CWnd* pParent /*=nullptr*/)
 	, Edit_Ready(_T(""))
 	, Edit_Blocked(_T(""))
 	, Edit_Result(_T(""))
+	, Edit_CurTimeSlice(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	//创建空闲进程
@@ -85,7 +86,7 @@ void COperationSystemDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_CurPCB, Edit_CurPCB);
 	DDX_Check(pDX, IDC_CHECK2, check2);
 	DDX_Text(pDX, IDC_EDIT_CurResult, CurResult);
-	DDX_Control(pDX, IDC_EDIT_CurTimeSlice, CurTimeSlice);
+	//  DDX_Control(pDX, IDC_EDIT_CurTimeSlice, CurTimeSlice);
 	DDX_Text(pDX, IDC_EDIT_CurCommand, CurCommand);
 	DDX_Check(pDX, IDC_CHECK3, check3);
 	DDX_Check(pDX, IDC_CHECK1, check1);
@@ -100,6 +101,7 @@ void COperationSystemDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_Blocked, Edit_Blocked);
 	DDX_Text(pDX, IDC_EDIT_Result, Edit_Result);
 	DDX_Control(pDX, PowerButton, PowerBtn);
+	DDX_Text(pDX, IDC_EDIT_CurTimeSlice, Edit_CurTimeSlice);
 }
 
 BEGIN_MESSAGE_MAP(COperationSystemDlg, CDialogEx)
@@ -108,6 +110,7 @@ BEGIN_MESSAGE_MAP(COperationSystemDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_LoadP0, &COperationSystemDlg::OnBnClickedLoadp0)
 	ON_BN_CLICKED(PowerButton, &COperationSystemDlg::OnBnClickedPowerbutton)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -222,11 +225,61 @@ void COperationSystemDlg::OnBnClickedPowerbutton()
 	// TODO: 在此添加控件通知处理程序代码
 	cpu.Power = !cpu.Power;
 	if (cpu.Power) {
+
+		SetTimer(1, 1000,NULL);
 		PowerBtn.SetWindowTextA("关机");
+		string a = "x++;";
+		Edit_CurPCB = a.c_str();
+
 	}
 	else {
+		KillTimer(1);
 		PowerBtn.SetWindowTextA("开机");
+	}	
+}
+
+
+void COperationSystemDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	Edit_Blocked.Format(_T("%d"), Test++);
+	
+	//每次调用一次cpu执行指令
+	//cpu.Deal();
+
+	//Edit_CurPCB.Format(_T("%d"), theRegister.PC);
+	//Edit_CurPCB.Format(_T("%4s"), theRegister.pcb->Name);
+
+	CDialogEx::OnTimer(nIDEvent);
+}
+
+
+// 将信息现实在对话框上
+void COperationSystemDlg::Show()
+{
+	// TODO: 在此处添加实现代码.
+	Edit_CurPCB.Format(_T("%s"), theRegister.pcb->Name.c_str());
+	CurCommand.Format(_T("%s"), theRegister.IR.c_str());
+	Edit_CurTimeSlice.Format(_T("%d"), cpu.TimeSlice);
+	CurResult.Format(_T("%d"), theRegister.DR);
+
+	//重新输入就绪队列和阻塞队列里的内容
+	UpdatePCBQueue(PCB_Ready.GetHead(), &Edit_Ready);
+	UpdatePCBQueue(PCB_Blocked.GetHead(), &Edit_Blocked);
+
+	Edit_Result = Result;
+	UpdateData(false);
+}
+
+
+// 更新PCB队列的显示框
+void COperationSystemDlg::UpdatePCBQueue(PPCB queueHead, CString* Edit)
+{
+	// TODO: 在此处添加实现代码.
+	CString temp;
+	*Edit = "";
+	while (queueHead) {
+		temp.Format(_T("%s \n"), queueHead->Name.c_str());
+		*Edit += temp;
+		queueHead = queueHead->Next;
 	}
-	int i = 0;	
-	SetTimer(1, 1000, NULL);
 }

@@ -38,6 +38,5 @@ void IODevice::PrintResult()
 {
 	CString temp;
 	//将该结果显示在对话框中
-	temp.Format(_T("%s ->%d\n"), IORegister.pcb->Name, IORegister.DR);
-	Result += temp;
+	
 }

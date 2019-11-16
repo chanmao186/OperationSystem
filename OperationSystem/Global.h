@@ -27,4 +27,5 @@ static Register IORegister;
 
 static CString Result;
 static CPU cpu;
+
 #endif // !_Global_

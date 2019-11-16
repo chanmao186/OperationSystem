@@ -8,6 +8,7 @@ void Register::SvaePCBState()
 	pcb->PC = PC;
 	pcb->Date = DR;
 	pcb->PState = PSW;
+	pcb->BlockedTime = BlockedTime;
 }
 Register::Register() {
 	DR = 0;
@@ -28,6 +29,10 @@ void Register::GetPcbState(PPCB curPCB)
 void Register::LoadPCB(PPCB _pcb)
 {
 	// TODO: 在此处添加实现代码.
+	PC = _pcb->PC;
+	DR = _pcb->Date;
+	PSW = Running;
+	pcb = _pcb;
 }
 
 

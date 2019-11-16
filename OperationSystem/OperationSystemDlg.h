@@ -39,7 +39,7 @@ public:
 	BOOL check2;
 
 	CString CurResult;
-	CEdit CurTimeSlice;
+//	CEdit CurTimeSlice;
 	CString CurCommand;
 	BOOL check3;
 	BOOL check1;
@@ -60,4 +60,12 @@ public:
 	CString Edit_Result;
 	afx_msg void OnBnClickedPowerbutton();
 	CButton PowerBtn;
+	
+	int Test = 0;
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	// 将信息现实在对话框上
+	void Show();
+	CString Edit_CurTimeSlice;
+	// 更新PCB队列的显示框
+	void UpdatePCBQueue(PPCB queueHead, CString* Edit);
 };

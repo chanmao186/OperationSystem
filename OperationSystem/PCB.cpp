@@ -39,7 +39,7 @@ void PCB::TranformStates(PStates state)
 	if (state == Ready) {
 		PCB_Ready.Push(this);
 	}
-	else if(state == Blocked){
+	else if(state == Blocked_IO){
 		PCB_Blocked.Push(this);
 	}
 }

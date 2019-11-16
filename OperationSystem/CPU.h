@@ -13,7 +13,11 @@ public:
 	void UpdateIR();
 	// 处理中断
 	void DealInterrupt();
+	int TimeSlice = 0;
 	// 进行时间片的更新
 	void UpdateTime();
+	// 更新阻塞队列中的进程
+	void UpdateBlockedProcess();
+	void CheckProcessStates();
 };
 
