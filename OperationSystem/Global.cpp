@@ -25,7 +25,7 @@ static Register theRegister;
 //IOÉè±¸µÄ¼Ä´æÆ÷
 static Register IORegister;
 
-static CString Result="";
+static CString Result = "";
 static CPU cpu;
 
 #endif // !_Global_

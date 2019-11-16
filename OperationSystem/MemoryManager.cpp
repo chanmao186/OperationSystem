@@ -8,7 +8,7 @@ int MemoryManager::Initialize()
 {
 	
 	for (int i = 0; i < 128; i++) {
-		Memory[i].flag = false;
+		Memory[i].flag = 0;
 	}
 	Head = ConfigPage(NULL, 128, 0, NULL, NULL);
 	return 0;
@@ -36,14 +36,14 @@ Page MemoryManager::Malloc(int size)
 	if (!temp)return NULL;
 
 	//若该地址块的过长，则进行分割
-	if (temp->Length - size <= MinSize) {
+	if (temp->Length - size >= MinSize) {
 		Page p = ConfigPage(NULL, temp->Length - size,
 			temp->Start + size, temp, temp->Next);
 		temp->Next = p;
 		temp->Length = size;
 	}
 	for (int i = temp->Start,j= i + temp->Length; i < j; i++) {
-		Memory[i].flag = true;
+		Memory[i].flag = 1;
 	}
 	return temp;
 };
@@ -52,7 +52,7 @@ void MemoryManager::Free(Page _page)
 {
 	Page temp;
 	for (int i = _page->Start, j = i + _page->Length; i < j; i++) {
-		Memory[i].flag = false;
+		Memory[i].flag = 0;
 	}
 	//进行可变内存块的合并
 	temp = _page->Front;

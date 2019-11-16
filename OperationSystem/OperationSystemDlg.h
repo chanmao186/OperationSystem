@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "Global.h"
+#include "Define.h"
 typedef BOOL* CheckState;
 // COperationSystemDlg 对话框
 class COperationSystemDlg : public CDialogEx
@@ -68,4 +68,6 @@ public:
 	CString Edit_CurTimeSlice;
 	// 更新PCB队列的显示框
 	void UpdatePCBQueue(PPCB queueHead, CString* Edit);
+	void ShowMemory();
+	CStatic Memory_Picture;
 };

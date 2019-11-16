@@ -7,7 +7,7 @@
 #include "OperationSystem.h"
 #include "OperationSystemDlg.h"
 #include "afxdialogex.h"
-
+#include "Global.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -102,6 +102,7 @@ void COperationSystemDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_Result, Edit_Result);
 	DDX_Control(pDX, PowerButton, PowerBtn);
 	DDX_Text(pDX, IDC_EDIT_CurTimeSlice, Edit_CurTimeSlice);
+	DDX_Control(pDX, IDC_Memory, Memory_Picture);
 }
 
 BEGIN_MESSAGE_MAP(COperationSystemDlg, CDialogEx)
@@ -225,7 +226,7 @@ void COperationSystemDlg::OnBnClickedPowerbutton()
 	// TODO: 在此添加控件通知处理程序代码
 	cpu.Power = !cpu.Power;
 	if (cpu.Power) {
-
+		ShowMemory();
 		SetTimer(1, 1000,NULL);
 		PowerBtn.SetWindowTextA("关机");
 		string a = "x++;";
@@ -282,4 +283,41 @@ void COperationSystemDlg::UpdatePCBQueue(PPCB queueHead, CString* Edit)
 		*Edit += temp;
 		queueHead = queueHead->Next;
 	}
+}
+
+
+void COperationSystemDlg::ShowMemory()
+{
+	// TODO: 在此处添加实现代码.
+	CRect rect;
+	CWnd* pWin = GetDlgItem(IDC_Memory);
+	pWin->GetClientRect(rect);
+	CDC* pDc = pWin->GetDC();
+	//获得图片的节点的长宽高
+	int width = rect.Width();//可以获取宽和高
+	int height = rect.Height();
+
+	int h = height / 8;
+	int w = width / 16;
+	int x, y;
+	CBrush gray, green;
+	gray.CreateSolidBrush(RGB(156,156,156));
+	green.CreateSolidBrush(RGB(0, 255, 0));
+	int check;
+	MemoryManager* m = &TheMemory;
+	for (int i = 0; i < 128; i++) {
+		x = i % 16;
+	    y = i / 16;
+		check =m->Memory[i].flag;
+		if (check) {
+			pDc->SelectObject(&green);
+		}
+		else {
+			pDc->SelectObject(&gray);
+		}		
+		pDc->Rectangle(x*w + 1, y*h + 1, 
+			(x + 1) * w - 1, (y + 1) * h - 1);
+	}
+
+	
 }

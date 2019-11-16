@@ -20,12 +20,14 @@ void Process::Create(string FileName) {
 	addr = pcb->page->Start;
 	//给地址赋值
 	for (int i = 0; i < length; i++) {
-		getline(ifs, TheMemory.Memory[addr].command);
+		getline(ifs, TheMemory.Memory[i].command);
 	}
 	
 	ifs.close();
-
+	
+	pcb->ID = ID++;
 	//将新建的进程加入的就绪队列
+	if(pcb->ID)
 	PCB_Ready.Push(pcb);
 	//int length = atoi();
 }

@@ -38,7 +38,7 @@ struct MemoryNode
 	//该地址上所储存的指令
 	string command;
 	//地址是否被占用
-	bool flag;
+	int flag;
 };
 #endif // !_Global_
 
