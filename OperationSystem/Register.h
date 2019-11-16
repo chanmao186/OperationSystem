@@ -16,8 +16,11 @@ public:
 	void SvaePCBState();
 	int DR;
 	Register();
+
+	int BlockedTime;
 	// 获取当前寄存器的状态
 	void GetPcbState(PPCB curPCB);
 	void LoadPCB(PPCB _pcb);
+
 };
 

@@ -14,6 +14,7 @@ Register::Register() {
 	PC = 0;
 	PSW = Ready;
 	pcb = NULL;
+	BlockedTime = 0;
 }
 
 // 获取当前寄存器的状态
@@ -28,3 +29,5 @@ void Register::LoadPCB(PPCB _pcb)
 {
 	// TODO: 在此处添加实现代码.
 }
+
+

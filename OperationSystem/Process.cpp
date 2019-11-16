@@ -24,6 +24,9 @@ void Process::Create(string FileName) {
 	}
 	
 	ifs.close();
+
+	//将新建的进程加入的就绪队列
+	PCB_Ready.Push(pcb);
 	//int length = atoi();
 }
 PPCB Process::SeekBlankPCB()
@@ -33,4 +36,37 @@ PPCB Process::SeekBlankPCB()
 			continue;
 		return &pcbArray[i];
 	}  return NULL;
+}
+
+
+// 阻塞函数
+int Process::Block()
+{
+	//保存状态，加入到阻塞队列
+	theRegister.SvaePCBState();
+	PCB_Blocked.Push(theRegister.pcb);
+	// TODO: 在此处添加实现代码.
+	return 0;
+}
+
+
+// 进行进程唤醒
+int Process::WeakUp()
+{
+	// TODO: 在此处添加实现代码.
+	IORegister.SvaePCBState();
+	PCB_Ready.Push(IORegister.pcb);
+	return 0;
+}
+
+
+// 销毁进程的函数
+void Process::Destery()
+{
+	// TODO: 在此处添加实现代码.
+	PPCB temp= theRegister.pcb;
+	//释放进程的所占的内存
+	TheMemory.Free(temp->page);
+	//初始化进程
+	temp->Initialize();
 }

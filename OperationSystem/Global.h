@@ -15,12 +15,16 @@
 //进程的总数，一共9个一个空闲进程
 #define PNum 9
 static PCB pcbArray[PNum];
-static PCB IdlePCB("Idle");
+//static PCB IdlePCB("Idle");
 static queue PCB_Ready;
 static queue PCB_Blocked;
 static MemoryManager TheMemory;
 static string path = "res\\process_code\\";
 static Process process;
 static Register theRegister;
+//IO设备的寄存器
+static Register IORegister;
+
+static CString Result;
 static CPU cpu;
 #endif // !_Global_

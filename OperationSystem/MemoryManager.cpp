@@ -6,17 +6,11 @@
 //将内存初始化
 int MemoryManager::Initialize()
 {
-	Memory[0].command = "x=0;";
-	Memory[1].command = "god;";
-	Memory[0].flag = true;
-	Memory[1].flag = true;
-	// TODO: 在此处添加实现代码.
-	for (int i = 2; i < 128; i++) {
-		Memory[i].flag= false;
+	
+	for (int i = 0; i < 128; i++) {
+		Memory[i].flag = false;
 	}
-	Head = (Page)malloc(sizeof(PageNode));
-	ConfigPage(Idle, 2,0, NULL, Head);
-	ConfigPage(Head, 126,2, Idle, NULL);
+	Head = ConfigPage(NULL, 128, 0, NULL, NULL);
 	return 0;
 }
 
@@ -84,9 +78,10 @@ Page MemoryManager::ConfigPage(Page p,int length,int start, Page front, Page nex
 	if (p == NULL) {
 		p = (Page)malloc(sizeof(PageNode));
 	}
-	p->Length = length;
+	
 	p->Next = next;
 	p->Front = front;
 	p->Start = start;
+	p->Length = length;
 	return p;
 }

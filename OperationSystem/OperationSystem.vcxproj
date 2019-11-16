@@ -189,6 +189,7 @@
   <ItemGroup>
     <ClInclude Include="CPU.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="IODevice.h" />
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="OperationSystem.h" />
     <ClInclude Include="OperationSystemDlg.h" />
@@ -204,6 +205,7 @@
     <ClCompile Include="CPU.cpp" />
     <ClCompile Include="Define.h" />
     <ClCompile Include="Global.h" />
+    <ClCompile Include="IODevice.cpp" />
     <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="OperationSystem.cpp" />
     <ClCompile Include="OperationSystemDlg.cpp" />

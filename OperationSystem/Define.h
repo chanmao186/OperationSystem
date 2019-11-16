@@ -13,7 +13,7 @@ using namespace std;
 //程序的三种基本状态
 enum PStates
 {
-	Ready,Running,Blocked
+	Ready,Running,Blocked_Destroy,Blocked_IO
 };
 
 typedef class PCB *PPCB;

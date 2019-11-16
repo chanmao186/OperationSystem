@@ -7,6 +7,7 @@ int PCB::Initialize()
 	PC = 0;
 	Date = 0;
 	ID = 0;
+	BlockedTime = 0;
 	Next = NULL;
 	page = NULL;
 	PState = Ready;

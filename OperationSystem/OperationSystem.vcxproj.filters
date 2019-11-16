@@ -51,6 +51,9 @@
     <ClInclude Include="queue.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="IODevice.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OperationSystem.cpp">
@@ -85,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="Define.h">
       <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="IODevice.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

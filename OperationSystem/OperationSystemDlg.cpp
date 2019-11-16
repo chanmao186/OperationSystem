@@ -74,6 +74,9 @@ COperationSystemDlg::COperationSystemDlg(CWnd* pParent /*=nullptr*/)
 	, Edit_Result(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	//创建空闲进程
+	process.Create("idle.c");
+	//TheMemory.
 }
 
 void COperationSystemDlg::DoDataExchange(CDataExchange* pDX)
@@ -197,7 +200,6 @@ HCURSOR COperationSystemDlg::OnQueryDragIcon()
 
 void COperationSystemDlg::OnBnClickedLoadp0()
 {
-
 	if (!cpu.Power)return;
 	//先获取列表框中的数据
 	
@@ -225,4 +227,6 @@ void COperationSystemDlg::OnBnClickedPowerbutton()
 	else {
 		PowerBtn.SetWindowTextA("开机");
 	}
+	int i = 0;	
+	SetTimer(1, 1000, NULL);
 }

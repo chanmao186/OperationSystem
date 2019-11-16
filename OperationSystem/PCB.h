@@ -30,5 +30,9 @@ public:
 	void TranformStates(PStates state);
 	PCB();
 	PCB(string name);
+	// 该进程要阻塞的时间
+	int BlockedTime;
+	// 阻塞时间
+
 };
 
