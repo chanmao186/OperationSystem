@@ -63,6 +63,8 @@ void CPU::Dispatch()
 			process.Destery();
 		}
 	}
+
+	//加载新的进程块
 	if (!PCB_Ready.Empty()) {
 		theRegister.LoadPCB(PCB_Ready.Pop());
 	}

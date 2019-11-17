@@ -30,6 +30,10 @@
 #define IDC_EDIT_Ready                  1026
 #define PowerButton                     1027
 #define IDC_Memory                      1028
+#define IDC_EDIT1                       1029
+#define IDC_NETADDRESS2                 1033
+#define IDC_SCROLLBAR1                  1034
+#define IDC_CPUSPEED                    1034
 
 // Next default values for new objects
 // 
@@ -37,7 +41,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        133
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1029
+#define _APS_NEXT_CONTROL_VALUE         1035
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

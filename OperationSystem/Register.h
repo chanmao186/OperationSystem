@@ -12,6 +12,7 @@ public:
 	int PC;
 	// 正在执行的指令控制块指针
 	PPCB pcb;
+	string Name;
 	// 保持当前程序的状态
 	void SvaePCBState();
 	int DR;

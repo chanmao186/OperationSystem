@@ -17,6 +17,7 @@ Register::Register() {
 	PSW = Ready;
 	pcb = &pcbArray[0];
 	BlockedTime = 0;
+	Name = "idle.c";
 }
 
 // 获取当前寄存器的状态
@@ -32,7 +33,8 @@ void Register::LoadPCB(PPCB _pcb)
 	// TODO: 在此处添加实现代码.
 	PC = _pcb->PC;
 	DR = _pcb->Date;
-	PSW = Running;
 	pcb = _pcb;
+	PSW = _pcb->PState;
+	Name = _pcb->Name;
 }
 

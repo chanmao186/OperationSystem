@@ -73,6 +73,7 @@ COperationSystemDlg::COperationSystemDlg(CWnd* pParent /*=nullptr*/)
 	, Edit_Blocked(_T(""))
 	, Edit_Result(_T(""))
 	, Edit_CurTimeSlice(_T(""))
+	, cpuSpeed(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	//创建空闲进程
@@ -103,6 +104,7 @@ void COperationSystemDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, PowerButton, PowerBtn);
 	DDX_Text(pDX, IDC_EDIT_CurTimeSlice, Edit_CurTimeSlice);
 	DDX_Control(pDX, IDC_Memory, Memory_Picture);
+	DDX_Scroll(pDX, IDC_CPUSPEED, cpuSpeed);
 }
 
 BEGIN_MESSAGE_MAP(COperationSystemDlg, CDialogEx)
@@ -112,6 +114,7 @@ BEGIN_MESSAGE_MAP(COperationSystemDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_LoadP0, &COperationSystemDlg::OnBnClickedLoadp0)
 	ON_BN_CLICKED(PowerButton, &COperationSystemDlg::OnBnClickedPowerbutton)
 	ON_WM_TIMER()
+	//ON_NOTIFY(NM_THEMECHANGED, IDC_CPUSPEED, &COperationSystemDlg::OnNMThemeChangedCpuspeed)
 END_MESSAGE_MAP()
 
 
@@ -204,6 +207,8 @@ HCURSOR COperationSystemDlg::OnQueryDragIcon()
 
 void COperationSystemDlg::OnBnClickedLoadp0()
 {
+	UpdateData(true);
+	cpuSpeed;
 	if (!cpu.Power)return;
 	//先获取列表框中的数据
 	
@@ -252,9 +257,10 @@ void COperationSystemDlg::OnTimer(UINT_PTR nIDEvent)
 // 将信息现实在对话框上
 void COperationSystemDlg::Show()
 {
+				
 	UpdateData(true);
 	// TODO: 在此处添加实现代码.
-	Edit_CurPCB.Format(_T("%s"), theRegister.pcb->Name.c_str());
+	Edit_CurPCB.Format(_T("%s"), theRegister.Name.c_str());
 	CurCommand.Format(_T("%s"), theRegister.IR.c_str());
 	Edit_CurTimeSlice.Format(_T("%d"), cpu.TimeSlice);
 	CurResult.Format(_T("%d"), theRegister.DR);
@@ -327,3 +333,5 @@ void COperationSystemDlg::RunAndShow()
 	Show();
 	ShowMemory();
 }
+
+

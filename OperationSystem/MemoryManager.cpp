@@ -62,6 +62,10 @@ void MemoryManager::Free(Page _page)
 	//先向前进行合并
 	if (temp && !Memory[temp->Start].flag) {
 		temp->Length += _page->Length;
+		temp->Next = _page->Next;
+		if (temp->Next) {
+			temp->Next->Front = temp;
+		}
 		free(_page);
 		_page = temp;
 	}
@@ -69,6 +73,10 @@ void MemoryManager::Free(Page _page)
 	temp = _page->Next;
 	if (temp && !Memory[temp->Start].flag) {
 		_page->Length += temp->Length;
+		_page->Next = temp->Next;
+		if (_page->Next) {
+			_page->Next->Front = _page;
+		}
 		free(temp);
 	}
 }

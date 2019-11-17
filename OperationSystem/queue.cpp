@@ -21,7 +21,7 @@ PPCB queue::Pop()
 	}
 	// TODO: 在此处添加实现代码.
 	PPCB temp = Head->Next;
-	if (temp->Next) {
+	if (!temp->Next) {
 		Nail = Head;
 	}
 	Head->Next = temp->Next;
