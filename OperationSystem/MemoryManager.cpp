@@ -6,7 +6,7 @@
 //将内存初始化
 int MemoryManager::Initialize()
 {
-	
+
 	for (int i = 0; i < 128; i++) {
 		Memory[i].flag = 0;
 	}
@@ -28,7 +28,10 @@ Page MemoryManager::Malloc(int size)
 	未被使用
 	可以利用长度大于size
 	*/
-	while (temp && Memory[temp->Start].flag && temp->Length < size) {
+	while (temp) {
+		if (!Memory[temp->Start].flag || temp->Length > size) {
+			break;
+		}
 		temp = temp->Next;
 	}
 
@@ -42,7 +45,7 @@ Page MemoryManager::Malloc(int size)
 		temp->Next = p;
 		temp->Length = size;
 	}
-	for (int i = temp->Start,j= i + temp->Length; i < j; i++) {
+	for (int i = temp->Start, j = i + temp->Length; i < j; i++) {
 		Memory[i].flag = 1;
 	}
 	return temp;
@@ -72,13 +75,13 @@ void MemoryManager::Free(Page _page)
 
 
 // 配置页块
-Page MemoryManager::ConfigPage(Page p,int length,int start, Page front, Page next)
+Page MemoryManager::ConfigPage(Page p, int length, int start, Page front, Page next)
 {
 	// TODO: 在此处添加实现代码.
 	if (p == NULL) {
 		p = (Page)malloc(sizeof(PageNode));
 	}
-	
+
 	p->Next = next;
 	p->Front = front;
 	p->Start = start;

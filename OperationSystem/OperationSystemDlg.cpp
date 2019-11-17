@@ -213,7 +213,7 @@ void COperationSystemDlg::OnBnClickedLoadp0()
 	for (int i = 0; i < 10; i++) {
 		if (*check[i]) {
 			file[2] = i+'0';
-			//process.Create(file);
+			process.Create(file);
 			*check[i] = FALSE;
 		}
 	}
@@ -252,6 +252,7 @@ void COperationSystemDlg::OnTimer(UINT_PTR nIDEvent)
 // 将信息现实在对话框上
 void COperationSystemDlg::Show()
 {
+	UpdateData(true);
 	// TODO: 在此处添加实现代码.
 	Edit_CurPCB.Format(_T("%s"), theRegister.pcb->Name.c_str());
 	CurCommand.Format(_T("%s"), theRegister.IR.c_str());
@@ -274,7 +275,8 @@ void COperationSystemDlg::UpdatePCBQueue(PPCB queueHead, CString* Edit)
 	CString temp;
 	*Edit = "";
 	while (queueHead) {
-		temp.Format(_T("%s \n"), queueHead->Name.c_str());
+		temp.Format(_T("%s "), queueHead->Name.c_str());
+		temp += "\r\n";
 		*Edit += temp;
 		queueHead = queueHead->Next;
 	}

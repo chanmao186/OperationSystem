@@ -12,6 +12,7 @@ void CPU::Deal() {
 	}
 	//更新阻塞的进程
 	UpdateBlockedProcess();
+	CheckProcessStates();
 	UpdateIR();
 	DealIR();
 	theRegister.PC++;
@@ -36,7 +37,7 @@ void CPU::DealIR()
 		//获取阻塞时间
 		theRegister.BlockedTime = theRegister.IR[2] - '0';
 	}
-	else if (theRegister.IR[0] == 'E') {
+	else if (theRegister.IR[0] == 'e') {
 		theRegister.PSW = Blocked_Destroy;
 	}
 	else if (theRegister.IR[0] == 'g') {
@@ -50,15 +51,20 @@ void CPU::Dispatch()
 	//保存上一个程序的状态
 	//theRegister.SvaePCBState();
 	//加载新的进程，若就绪队列为空，则加载idle进程
-	if (!PCB_Ready.Empty()) {
-		theRegister.LoadPCB(PCB_Ready.Pop());
+	if (theRegister.pcb->ID) {
 		theRegister.SvaePCBState();
-		if (theRegister.PSW > 1) {
+		if (theRegister.PSW ==Blocked_IO) {
 			process.Block();
 		}
-		else {
+		else if(theRegister.PSW == Ready){
 			PCB_Ready.Push(theRegister.pcb);
 		}
+		else if (theRegister.PSW == Blocked_Destroy) {
+			process.Destery();
+		}
+	}
+	if (!PCB_Ready.Empty()) {
+		theRegister.LoadPCB(PCB_Ready.Pop());
 	}
 	else {
 		//检查当前运行的是否为idle进程
@@ -103,10 +109,9 @@ void CPU::UpdateBlockedProcess()
 
 void CPU::CheckProcessStates()
 {
-	// TODO: 在此处添加实现代码.
-	PPCB p = PCB_Blocked.GetHead();
+ 	PPCB p = PCB_Blocked.GetHead();
 
-	if (!p || p->BlockedTime) {
+	if (p && !p->BlockedTime) {
 		process.WeakUp();
 	}
 }

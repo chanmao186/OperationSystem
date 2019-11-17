@@ -19,7 +19,7 @@ void Process::Create(string FileName) {
 	pcb->Config(TheMemory.Malloc(length), FileName);
 	addr = pcb->page->Start;
 	//给地址赋值
-	for (int i = 0; i < length; i++) {
+	for (int i = pcb->page->Start,j=i+ length; i < j; i++) {
 		getline(ifs, TheMemory.Memory[i].command);
 	}
 	
@@ -59,7 +59,7 @@ int Process::WeakUp()
 
 	//将数据显示在对话框内
 	CString temp;
-	temp.Format(_T("%s ->%d\n"), p->Name.c_str(), p->Date);
+	temp.Format(_T("%s ->%d\r\n"), p->Name.c_str(), p->Date);
 	Result += temp;
 
 	p->PState = Ready;
