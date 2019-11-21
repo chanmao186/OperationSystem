@@ -71,5 +71,5 @@ public:
 	void ShowMemory();
 	CStatic Memory_Picture;
 	void RunAndShow();
-	int cpuSpeed;
+	//int cpuSpeed;
 };
