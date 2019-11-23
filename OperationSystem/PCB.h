@@ -12,7 +12,7 @@ public:
 	PStates PState;
 	// 程序当前执行的地址
 	int PC;
-	// 程序的ID编号
+	// 程序的ID编号，内部名字
 	int ID;
 	// 运行中程序的下一个指针
 	PPCB Next;
@@ -23,7 +23,7 @@ public:
 	int Initialize();
 	// 该进程块是否正在被使用，true是在被使用，false代表空闲
 	bool flag;
-	// 要加载的文件名字
+	// 要加载的文件名字,外部名字
 	string Name;
 	void Config(Page _page,string name);
 	// 改变进程块的状态，并加入到相关队列

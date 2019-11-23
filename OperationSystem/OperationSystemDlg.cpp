@@ -24,12 +24,12 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// 对话框数据
+	// 对话框数据
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 
 // 实现
@@ -211,13 +211,13 @@ void COperationSystemDlg::OnBnClickedLoadp0()
 	//cpuSpeed;
 	if (!cpu.Power)return;
 	//先获取列表框中的数据
-	
+
 	UpdateData(true);
 	string file = "000.c";
 	//根据文件明创建进程
 	for (int i = 0; i < 10; i++) {
 		if (*check[i]) {
-			file[2] = i+'0';
+			file[2] = i + '0';
 			process.Create(file);
 			*check[i] = FALSE;
 		}
@@ -232,13 +232,13 @@ void COperationSystemDlg::OnBnClickedPowerbutton()
 	cpu.Power = !cpu.Power;
 	if (cpu.Power) {
 		RunAndShow();
-		SetTimer(1, 1000,NULL);
+		SetTimer(1, 1000, NULL);
 		PowerBtn.SetWindowTextA("关机");
 	}
 	else {
 		KillTimer(1);
 		PowerBtn.SetWindowTextA("开机");
-	}	
+	}
 }
 
 
@@ -257,8 +257,9 @@ void COperationSystemDlg::OnTimer(UINT_PTR nIDEvent)
 // 将信息现实在对话框上
 void COperationSystemDlg::Show()
 {
-				
+
 	UpdateData(true);
+	ShowMemory();
 	// TODO: 在此处添加实现代码.
 	Edit_CurPCB.Format(_T("%s"), theRegister.Name.c_str());
 	CurCommand.Format(_T("%s"), theRegister.IR.c_str());
@@ -279,6 +280,7 @@ void COperationSystemDlg::UpdatePCBQueue(PPCB queueHead, CString* Edit)
 {
 	// TODO: 在此处添加实现代码.
 	CString temp;
+	//首先进行清空
 	*Edit = "";
 	while (queueHead) {
 		temp.Format(_T("%s "), queueHead->Name.c_str());
@@ -304,25 +306,25 @@ void COperationSystemDlg::ShowMemory()
 	int w = width / 16;
 	int x, y;
 	CBrush gray, green;
-	gray.CreateSolidBrush(RGB(156,156,156));
+	gray.CreateSolidBrush(RGB(156, 156, 156));
 	green.CreateSolidBrush(RGB(0, 255, 0));
 	int check;
 	MemoryManager* m = &TheMemory;
 	for (int i = 0; i < 128; i++) {
 		x = i % 16;
-	    y = i / 16;
-		check =m->Memory[i].flag;
+		y = i / 16;
+		check = m->Memory[i].flag;
 		if (check) {
 			pDc->SelectObject(&green);
 		}
 		else {
 			pDc->SelectObject(&gray);
-		}		
-		pDc->Rectangle(x*w + 1, y*h + 1, 
+		}
+		pDc->Rectangle(x * w + 1, y * h + 1,
 			(x + 1) * w - 1, (y + 1) * h - 1);
 	}
 
-	
+
 }
 
 
@@ -331,7 +333,6 @@ void COperationSystemDlg::RunAndShow()
 	// TODO: 在此处添加实现代码.
 	cpu.Deal();
 	Show();
-	ShowMemory();
 }
 
 

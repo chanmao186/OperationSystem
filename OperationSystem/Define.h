@@ -15,9 +15,8 @@ enum PStates
 {
 	Ready,Running,Blocked_Destroy,Blocked_IO
 };
-
 typedef class PCB *PPCB;
-//内存块的指针
+//可变分区的指针
 typedef struct PageNode* Page;
 
 struct PageNode {

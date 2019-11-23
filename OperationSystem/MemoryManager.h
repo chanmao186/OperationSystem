@@ -11,7 +11,7 @@ public:
 	// 页表的头部
 	Page Head;
 	// 空闲程序的进程块
-	Page Idle;
+	//Page Idle;
 	// 开辟地址
 	Page Malloc(int size);
 	void Free(Page _page);

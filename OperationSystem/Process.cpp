@@ -3,6 +3,7 @@
 #include "Process.h"
 #include "Global.h"
 void Process::Create(string FileName) {
+	//寻找空的进程控制块
 	PPCB pcb = SeekBlankPCB();
 	if (!pcb) {
 		//进程块已经满了
@@ -31,6 +32,10 @@ void Process::Create(string FileName) {
 	//将新建的进程加入的就绪队列
 	//int length = atoi();
 }
+
+/*
+通过遍历，寻找空的进程控制块
+*/
 PPCB Process::SeekBlankPCB()
 {
 	for (int i = 0; i < 9; i++) {

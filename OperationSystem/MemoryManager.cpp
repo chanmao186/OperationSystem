@@ -6,7 +6,7 @@
 //将内存初始化
 int MemoryManager::Initialize()
 {
-
+	//将内存初始化
 	for (int i = 0; i < 128; i++) {
 		Memory[i].flag = 0;
 	}
@@ -22,14 +22,12 @@ Page MemoryManager::Malloc(int size)
 {
 	Page temp = Head;
 	/**
-	寻找下一个地址块
-	要求
-	地址块存在
-	未被使用
-	可以利用长度大于size
+	通过遍历找到可用分区
 	*/
 	while (temp) {
-		if (!Memory[temp->Start].flag || temp->Length > size) {
+		//地址分区未用
+		//长度大于要求的长度
+		if (!Memory[temp->Start].flag && temp->Length >= size) {
 			break;
 		}
 		temp = temp->Next;
@@ -40,11 +38,13 @@ Page MemoryManager::Malloc(int size)
 
 	//若该地址块的过长，则进行分割
 	if (temp->Length - size >= MinSize) {
+		//新建一个分区
 		Page p = ConfigPage(NULL, temp->Length - size,
 			temp->Start + size, temp, temp->Next);
-		temp->Next = p;
 		temp->Length = size;
 	}
+
+	//把内存的标志置为已用
 	for (int i = temp->Start, j = i + temp->Length; i < j; i++) {
 		Memory[i].flag = 1;
 	}
@@ -95,5 +95,11 @@ Page MemoryManager::ConfigPage(Page p, int length, int start, Page front, Page n
 	p->Front = front;
 	p->Start = start;
 	p->Length = length;
+	if (next) {
+		next->Front = p;
+	}
+	if (front) {
+		front->Next = p;
+	}
 	return p;
 }

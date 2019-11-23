@@ -13,6 +13,7 @@ void CPU::Deal() {
 	//更新阻塞的进程
 	UpdateBlockedProcess();
 	CheckProcessStates();
+
 	UpdateIR();
 	DealIR();
 	theRegister.PC++;
