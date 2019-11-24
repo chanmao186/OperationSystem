@@ -16,5 +16,6 @@ public:
 	int WeakUp();
 	// 销毁进程的函数
 	void Destery();
+	void Initialize();
 };
 

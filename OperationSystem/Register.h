@@ -23,5 +23,6 @@ public:
 	void GetPcbState(PPCB curPCB);
 	void LoadPCB(PPCB _pcb);
 
+	void Initalize();
 };
 

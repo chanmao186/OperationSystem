@@ -6,15 +6,18 @@
 //将内存初始化
 int MemoryManager::Initialize()
 {
-	//将内存初始化
+	//将内存初始化	
 	for (int i = 0; i < 128; i++) {
 		Memory[i].flag = 0;
 	}
-	Head = ConfigPage(NULL, 128, 0, NULL, NULL);
+	while (Head->Next) {
+		Free(Head->Next);
+	}
 	return 0;
 }
 
 MemoryManager::MemoryManager() {
+	Head = ConfigPage(NULL, 128, 0, NULL, NULL);
 	Initialize();
 }
 // 开辟地址

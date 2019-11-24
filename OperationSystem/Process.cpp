@@ -83,3 +83,10 @@ void Process::Destery()
 	//初始化进程
 	temp->Initialize();
 }
+
+
+void Process::Initialize()
+{
+	// TODO: 在此处添加实现代码.
+	ID = 0;
+}

@@ -77,7 +77,7 @@ COperationSystemDlg::COperationSystemDlg(CWnd* pParent /*=nullptr*/)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	//创建空闲进程
-	process.Create("idle.c");
+	
 	//TheMemory.
 }
 
@@ -230,12 +230,15 @@ void COperationSystemDlg::OnBnClickedPowerbutton()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	cpu.Power = !cpu.Power;
-	if (cpu.Power) {
+	if (cpu.Power) {		
+		process.Create("idle.c");
 		RunAndShow();
 		SetTimer(1, 1000, NULL);
 		PowerBtn.SetWindowTextA("关机");
 	}
 	else {
+		ClosePC();
+		Show();
 		KillTimer(1);
 		PowerBtn.SetWindowTextA("开机");
 	}
@@ -336,3 +339,25 @@ void COperationSystemDlg::RunAndShow()
 }
 
 
+
+
+void COperationSystemDlg::ClosePC()
+{
+	// TODO: 在此处添加实现代码.
+	//将各个节点初始化
+	TheMemory.Initialize();
+	
+	cpu.Initialize();
+
+	theRegister.Initalize();
+
+	PCB_Blocked.Clear();
+
+	PCB_Ready.Clear();
+
+	process.Initialize();
+
+	for (int i = 0; i < PNum; i++) {
+		pcbArray[i].Initialize();
+	}
+}

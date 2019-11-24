@@ -118,3 +118,10 @@ void CPU::CheckProcessStates()
 		process.WeakUp();
 	}
 }
+
+
+void CPU::Initialize()
+{
+	// TODO: 在此处添加实现代码.
+	TimeSlice = 0;
+}

@@ -12,12 +12,7 @@ void Register::SvaePCBState()
 	pcb->BlockedTime = BlockedTime;
 }
 Register::Register() {
-	DR = 0;
-	PC = 0;
-	PSW = Ready;
-	pcb = &pcbArray[0];
-	BlockedTime = 0;
-	Name = "idle.c";
+	Initalize();
 }
 
 // 获取当前寄存器的状态
@@ -38,3 +33,15 @@ void Register::LoadPCB(PPCB _pcb)
 	Name = _pcb->Name;
 }
 
+
+
+void Register::Initalize()
+{
+	// TODO: 在此处添加实现代码.
+	DR = 0;
+	PC = 0;
+	PSW = Ready;
+	pcb = &pcbArray[0];
+	BlockedTime = 0;
+	Name = "idle.c";
+}

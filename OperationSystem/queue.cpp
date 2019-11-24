@@ -42,3 +42,13 @@ PPCB queue::GetHead()
 	// TODO: 在此处添加实现代码.
 	return Head->Next;
 }
+
+
+// 清空队列中的元素
+void queue::Clear()
+{
+	// TODO: 在此处添加实现代码.
+	while (!Empty()) {
+		Pop();
+	}
+}

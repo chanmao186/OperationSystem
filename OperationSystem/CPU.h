@@ -19,5 +19,6 @@ public:
 	// 更新阻塞队列中的进程
 	void UpdateBlockedProcess();
 	void CheckProcessStates();
+	void Initialize();
 };
 

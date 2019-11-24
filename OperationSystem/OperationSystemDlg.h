@@ -72,4 +72,5 @@ public:
 	CStatic Memory_Picture;
 	void RunAndShow();
 	//int cpuSpeed;
+	void ClosePC();
 };
