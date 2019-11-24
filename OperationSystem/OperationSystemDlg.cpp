@@ -357,6 +357,8 @@ void COperationSystemDlg::ClosePC()
 
 	process.Initialize();
 
+	Result = "";
+
 	for (int i = 0; i < PNum; i++) {
 		pcbArray[i].Initialize();
 	}
